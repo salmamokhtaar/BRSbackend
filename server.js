@@ -12,7 +12,10 @@ dotenv.config(); // Ensure this is at the top
 
 const app = express();
 const port = process.env.PORT || 3000;
-app.use(cors());
+app.use(cors({
+  origin: 'https://businessregistration.vercel.app',
+  credentials: true // if using cookies or authentication
+}));
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
